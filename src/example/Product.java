@@ -32,6 +32,6 @@ public class Product {
 	}
 	
 	public String toString() {
-		return "Product ID: " + getId() + " - Manufacturer: " + getManufacturer();
+		return "Product ID: " + getId() + " - Name: " + getName() + " - Manufacturer: " + getManufacturer();
 	}
 }

@@ -1,6 +1,8 @@
 package example;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ProductRepository {
@@ -29,8 +31,14 @@ public class ProductRepository {
         return productsCollection.get(productId);
     }
 
-    public Product[] list() {
-        return productsCollection.values().toArray(new Product[0]);
+    public List<Product> list() {
+        List<Product> result = new ArrayList<Product>();
+
+        this.productsCollection.forEach((id, product) -> {
+            result.add(product);
+        });
+
+        return result;
     }
 
     public void delete(String productId) {

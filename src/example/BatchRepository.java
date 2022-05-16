@@ -1,6 +1,8 @@
 package example;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class BatchRepository {
@@ -29,8 +31,14 @@ public class BatchRepository {
         return batchesCollection.get(batchId);
     }
 
-    public Batch[] list() {
-        return batchesCollection.values().toArray(new Batch[0]);
+    public List<Batch> list() {
+        List<Batch> result = new ArrayList<Batch>();
+
+        this.batchesCollection.forEach((id, batch) -> {
+            result.add(batch);
+        });
+
+        return result;
     }
 
     public void delete(String batchId) {
