@@ -19,12 +19,16 @@ public class ProdutoService {
 		this.prodRep = prodRep;
 	}
 	
+	public Collection<Produto> listarProdutos() {
+		return this.prodRep.getAll();
+	}
+	
 	public List<Produto> listarProdsLoteByName(String nome) {
 		List<Produto> prods = getProdsWithLote();
 		return getProdsByName(nome, prods);
 	}
 
-	public List<Produto> listarProdByName(String nome) {
+	public List<Produto> listarProdsByName(String nome) {
 		return getProdsByName(nome, this.prodRep.getAll());
 	}
 
@@ -38,7 +42,6 @@ public class ProdutoService {
 		return(prodsResult);
 	}
 	
-
 	private List<Produto> getProdsWithLote() {
 		List<Produto> prods = new ArrayList<Produto>();
 		for (Lote lote : this.loteRep.getAll()) {
@@ -47,7 +50,8 @@ public class ProdutoService {
 		return(prods);
 	}
 
-	public void addProduto(Produto p) {
+	public String addProduto(Produto p) {
 		this.prodRep.addProduto(p);
+		return p.getId();
 	}
 }
