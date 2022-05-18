@@ -8,7 +8,7 @@ import models.Lote;
 
 public class LoteRepository {
 	
-	Map<String, Lote> lotes;
+	private Map<String, Lote> lotes;
 	
 	public LoteRepository() {
 		this.lotes = new HashMap<String, Lote>();

@@ -8,7 +8,7 @@ import models.Produto;
 
 public class ProdutoRepository {
 	
-	Map<String, Produto> produtos;
+	private Map<String, Produto> produtos;
 	
 	public ProdutoRepository() {
 		this.produtos = new HashMap<String, Produto>();
