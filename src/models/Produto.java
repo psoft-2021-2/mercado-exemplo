@@ -17,7 +17,7 @@ public class Produto {
 		this.fabricante = fabricante;
 		this.preco = preco;
 	}
-	
+		
 	public String getId() {
 		return id;
 	}

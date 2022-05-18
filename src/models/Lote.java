@@ -8,13 +8,13 @@ public class Lote {
 	
 	private Produto produto;
 	
-	private Long quantidade; 
+	private int quantidade; 
 	
 	private Date dataFabricacao;
 	
 	private Date dataValidade; 
 	
-	public Lote(Produto produto, Long quantidade) {
+	public Lote(Produto produto, int quantidade) {
 		
 		this.id = UUID.randomUUID().toString();
 		this.produto = produto;
@@ -29,7 +29,7 @@ public class Lote {
 		return produto;
 	}
 
-	public Long getQuantidade() {
+	public int getQuantidade() {
 		return quantidade;
 	}
 
