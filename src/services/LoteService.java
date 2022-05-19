@@ -11,7 +11,8 @@ public class LoteService {
 		this.loteRep = rep;
 	}
 	
-	public void addLote(Lote lote) {
+	public String addLote(Lote lote) {
 		this.loteRep.addLote(lote);
+		return lote.getId();
 	}
 }
