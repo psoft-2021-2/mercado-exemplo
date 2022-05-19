@@ -1,27 +1,24 @@
-import models.Lote;
-import models.Produto;
-
 import facades.Facade;
 
 public class Sistema {
 	
 	public static void main(String[] args) {
 		
-		Produto p1 = new Produto("Leite", "Parmalat", 10.5);
-		Produto p2 = new Produto("Leite integral", "Vale", 6.5);
-		Produto p3 = new Produto("Açúcar", "Alegre", 3.5);
-
-		Lote l1 = new Lote(p1, 10L);
+		String jsonP1 = "{\"nome\":\"Leite integral\", \"fabricante\":\"Parmalat\", \"preco\":10.5}";
+		String jsonP2 = "{\"nome\":\"Leite\", \"fabricante\":\"Vale\", \"preco\":6.5}";;
+		String jsonP3 = "{\"nome\":\"Açúcar\", \"fabricante\":\"Alegre\", \"preco\":3.5}";;
 		
 		Facade mercadoFacade = new Facade();
 		
 		// Adicionando produtos no catálogo		
-		mercadoFacade.criarProduto(p1);
-		mercadoFacade.criarProduto(p2);
-		mercadoFacade.criarProduto(p3);
+		String idP1 = mercadoFacade.criarProduto(jsonP1);
+		mercadoFacade.criarProduto(jsonP2);
+		mercadoFacade.criarProduto(jsonP3);
 				
+		String jsonL1 = "{\"idProduto\":\"" + idP1 + "\", \"quantidade\":10}";;
+		
 		// Adicionando lotes no catálogo
-		mercadoFacade.criarLote(l1);
+		mercadoFacade.criarLote(jsonL1);
 		
 		// Lista produtos produto "leite" no catálogo de produto
 		System.out.println(mercadoFacade.listarProdutos());

@@ -7,7 +7,6 @@ import services.ProdutoService;
 
 import java.util.Collection;
 
-import models.Lote;
 import models.Produto; 
 
 public class Facade {
@@ -25,7 +24,7 @@ public class Facade {
 		this.produtoRep = new ProdutoRepository();
 		this.loteRep = new LoteRepository();
 		this.produtoService = new ProdutoService(loteRep, produtoRep);
-		this.loteService = new LoteService(loteRep);
+		this.loteService = new LoteService(loteRep, produtoRep);
 	}
 	
 	public Collection<Produto> listarProdutos() {
@@ -43,11 +42,11 @@ public class Facade {
 		return this.findProdutosByName(key, false);
 	}
 
-	public String criarProduto(Produto produto) {
-		return this.produtoService.addProduto(produto);
+	public String criarProduto(String data) {
+		return this.produtoService.addProduto(data);
 	}
 
-	public String criarLote(Lote lote) {
-		return this.loteService.addLote(lote);
+	public String criarLote(String data) {
+		return this.loteService.addLote(data);
 	}
 }
